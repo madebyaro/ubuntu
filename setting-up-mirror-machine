@@ -1,0 +1,20 @@
+
+### ubuntu mirror instructions  
+
+Install ubuntu 18.04 desktop 
+
+sudo su ; apt update ; apt upgrade  
+
+apt install apt-mirror  
+
+Pick a mirror from Ubuntu mirrors: e.g. us.archive.ubuntu.com  
+
+Edit /etc/apt/mirror.list (for bionic 18.04).  i386 repository is included because some packages reference both 64 bit and 32 bit packages, and the client machines will issue errors when running 'apt update' if the i386 repositories are not there.   
+
+Install apache2, net-tools (for ifconfig)   
+
+apt install apache2 net-tools  
+
+cd /var/www/html   
+
+ln -s /var/spool/apt-mirror/mirror/us.archive.ubuntu.com/ubuntu ubuntu  
