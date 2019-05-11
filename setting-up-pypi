@@ -1,0 +1,21 @@
+There are several ways to set up a pypi mirror, including bandersnatch and minirepo.  Also see pypistats (github).
+
+--Using bandersnatch
+
+Bandersnatch Notes
+
+Install ubuntu 18.04  
+
+sudo apt install virtualenv python3-venv  
+
+python3 -m venv bandersnatch
+
+. ./bandersnatch/bin/activate
+
+pip install wheel
+
+pip install bandersnatch
+
+sudo bandersnatch/bin/bandersnatch mirror  (generates /etc/bandersnatch.cfg)
+
+Rerun command to sync the mirror, full size as of May 2019 was 250G.
