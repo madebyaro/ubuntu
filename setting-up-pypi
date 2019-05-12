@@ -32,3 +32,11 @@ pypi-mirror -d pypi-downloads download requests
 
 # Now create the pypi mirror in the 'mirror' directory:
 pypi-mirror -d pypi-packages create -m mirror  
+
+# Quick and dirty python http server:  
+
+python3 -m http.server  
+
+# It will start a HTTP server that will serve file from the current directory (which should contains the downloads directory and the simple directory). You can then install packages using your brand new mirror using the following command:  
+
+pip install -i http://127.0.0.1:8000/simple requests  
