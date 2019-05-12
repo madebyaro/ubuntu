@@ -18,4 +18,17 @@ pip install bandersnatch
 
 sudo bandersnatch/bin/bandersnatch mirror  (generates /etc/bandersnatch.cfg)
 
-Rerun command to sync the mirror, full size as of May 2019 was 250G.
+Rerun command to sync the mirror, full size as of May 2019 was over 500G.  
+
+Use pypistats to trim it down to the popular packages.
+
+pip install pypistats
+
+
+pip install python-pypi-mirror
+
+# Download the 'requests' package to the pypi-downloads directory:  
+pypi-mirror -d pypi-downloads download requests  
+
+# Now create the pypi mirror in the 'mirror' directory:
+pypi-mirror -d pypi-packages create -m mirror  
