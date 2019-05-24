@@ -14,5 +14,8 @@ Create file called /etc/fail2ban/jail.local
 Unbanning procedure:
 
     sudo fail2ban-client set sshd unbanip IP_ADDRESS
-    
+   
+Install sendmail
+
+    sudo apt install sendmail
     
