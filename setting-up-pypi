@@ -17,7 +17,7 @@ $ pip install wheel
 
 $ pip install bandersnatch
 
-$ sudo venv/bin/bandersnatch mirror  (generates /etc/bandersnatch.cfg)
+$ sudo venv/bin/bandersnatch mirror  (generates /etc/bandersnatch.conf)
 
 Rerun command to sync the mirror, full size as of May 2019 was over 500G.  
 
