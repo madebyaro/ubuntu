@@ -6,24 +6,30 @@ Bandersnatch Notes
 
 Install ubuntu 18.04  
 
-sudo apt install virtualenv python3-venv  
+$ sudo apt install virtualenv python3-venv python3-pip
 
-python3 -m venv bandersnatch
+$ mkdir mirror ; cd mirror
+$ python3 -m venv venv
 
-. ./bandersnatch/bin/activate
+$ . ./venv/bin/activate
 
-pip install wheel
+$ pip install wheel
 
-pip install bandersnatch
+$ pip install bandersnatch
 
-sudo bandersnatch/bin/bandersnatch mirror  (generates /etc/bandersnatch.cfg)
+$ sudo venv/bin/bandersnatch mirror  (generates /etc/bandersnatch.cfg)
 
 Rerun command to sync the mirror, full size as of May 2019 was over 500G.  
 
-Use pypistats to trim it down to the popular packages.
+----------
+
+Use pypistats to trim it down to the popular packages.  (Haven't tried this yet).
 
 pip install pypistats
 
+----------
+
+Another approach is to only download specific packages (and their dependencies).
 
 pip install python-pypi-mirror
 
