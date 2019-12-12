@@ -1,0 +1,13 @@
+Using instructions found on:
+
+https://securityespresso.org/tutorials/2019/03/22/vpn-server-using-wireguard-on-ubuntu/
+
+For Ubuntu 18.04, had to also install:
+openresolv (on the client)
+
+To generate QR code for input on cell phone, needed to install:
+qrencode
+
+To run:
+qrencode -t ansiutf8 < wg0.conf 
+
