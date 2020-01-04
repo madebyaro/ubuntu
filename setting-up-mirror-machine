@@ -3,9 +3,9 @@
 
 Install ubuntu 18.04 desktop 
 
-sudo su ; apt update ; apt upgrade  
+$ sudo su ; apt update ; apt upgrade  
 
-apt install apt-mirror  
+$ sudo apt install apt-mirror apache2 net-tools openssh-server 
 
 Pick a mirror from Ubuntu mirrors: e.g. us.archive.ubuntu.com  
 
@@ -13,7 +13,7 @@ Edit /etc/apt/mirror.list (for bionic 18.04).
 
 ############# config ##################
 #
-set base_path    /home/repos/18.04
+set base_path    /home/user1/repos/18.04
 #
 # set mirror_path  $base_path/mirror
 # set skel_path    $base_path/skel
@@ -28,11 +28,43 @@ set _tilde 0
 deb http://us.archive.ubuntu.com/ubuntu bionic main restricted universe multiverse
 deb http://us.archive.ubuntu.com/ubuntu bionic-updates main restricted universe multiverse
 deb http://us.archive.ubuntu.com/ubuntu bionic-security main restricted universe multiverse
+deb http://us.archive.ubuntu.com/ubuntu bionic-proposed main restricted universe multiverse
+deb http://us.archive.ubuntu.com/ubuntu bionic-backports main restricted universe multiverse
 #
 ############# end config ##############
 
-Install apache2, net-tools (for ifconfig)   
-$ sudo apt install apache2 net-tools  
-$ cd /var/www/html   
-$ sudo ln -s /var/spool/apt-mirror/mirror/us.archive.ubuntu.com/ubuntu ubuntu  
+Start the mirroring
+$ mkdir -p /home/user1/repos/18.04 ; apt-mirror
 
+$ cd /var/www/html   
+## old: $ sudo ln -s /var/spool/apt-mirror/mirror/us.archive.ubuntu.com/ubuntu ubuntu  
+
+$ sudo ln -s /home/user1/repos/18.04/mirror/archive.ubuntu.com/ubuntu ubuntu
+
+# Note: may need to ensure FollowSymLinks is enabled for the html directory in /etc/apache2/...
+
+####
+
+Client machines just need to change their /etc/apt/sources.list to point to the mirror:
+
+#deb cdrom:[Ubuntu 18.04.2 LTS _Bionic Beaver_ - Release amd64 (20190210)]/ bionic main restricted
+
+deb [arch=amd64] http://mirror/ubuntu/ bionic main restricted                                                                                           
+                                                                                                                                           
+deb [arch=amd64] http://mirror/ubuntu/ bionic-updates main restricted                                                                                   
+                                                                                                                                           
+deb [arch=amd64] http://mirror/ubuntu/ bionic universe                                                                             
+deb [arch=amd64] http://mirror/ubuntu/ bionic-updates universe                                                                     
+
+deb [arch=amd64] http://mirror/ubuntu/ bionic multiverse
+deb [arch=amd64] http://mirror/ubuntu/ bionic-updates multiverse
+
+deb [arch=amd64] http://mirror/ubuntu/ bionic-backports main restricted universe multiverse
+
+deb [arch=amd64] http://mirror/ubuntu bionic partner
+
+deb [arch=amd64] http://mirror/ubuntu/ bionic-security main restricted
+deb [arch=amd64] http://mirror/ubuntu bionic-security universe
+deb [arch=amd64] http://mirror/ubuntu bionic-security multiverse
+
+###
