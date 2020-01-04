@@ -1,6 +1,8 @@
-### Setting up a Ubuntu 18.04 apt package mirror
 
-For instructions on setting up the mirror machine, see setting-up-mirror-machine, and the file mirror.list will also be needed.  
+# imaging
 
-For instructions on setting up client machines, see setting-up-client.
+Make an image of a digital ocean droplet  
+
+ssh root@x.y.z.196 "dd if=/dev/vda1 | gzip -1 -" | dd of=image.196.gz
+
 
