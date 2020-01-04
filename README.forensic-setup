@@ -1,0 +1,60 @@
+Ubuntu 18.04.3
+
+$ sudo apt update && sudo apt upgrade -Y
+$ sudo apt install autopsy sleuthkit openssh-server net-tools build-essential git
+$ sudo apt install xmount ewf-tools afflib-tools
+$ sudo apt install ntfs-3g vmfs-tools squashfs-tools mtd-tools xmount
+$ sudo apt install xfsprogs xfsdump attr quota
+$ sudo apt install nfs-common nfs-kernel-server cifs-utils
+$ sudo apt install qemu-utils avfs disktype lvm2 libbde-utils libvshadow-utils
+$ sudo apt install cryptsetup mdadm squashfs-tools mtd-tools 
+
+# python stuff
+$ sudo apt install python-setuptools python3-pip virtualenvwrapper virtualenv python3-venv
+
+# Make a pypi mirror
+$ mkdir -p ~/src/pypi ; cd ~/src/pypi
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip install wheel python-pypi-mirror simplejson
+
+# Now can install a series of packages (perhaps top 4000 packages?)
+$ pypi-mirror download -d downloads {python-package-name}
+...download lots more packages, then create the mirror...
+$ pypi-mirror create   -d downloads -m {mirror-directory}
+
+Change directory into the mirror-directory
+$ python3 -m http.server
+# To install requests package
+$ pip install -i http://127.0.0.1:8000/mirror requests
+
+# imagemounter and friends
+$ pip install imagemounter (to get imount)
+$ imount --check
+$ pip install pytsk3 python-magic thumbtack
+
+# NFS server and client info
+
+exports file: /mnt/shared subnet/24(rw,sync,no_subtree_check)
+mkdir /mnt/shared ; chown nobody:nogroup /mnt/shared ; chmod 777 /mnt/shared
+
+client: mkdir /mnt/shared-folder 
+sudo mount server-ip:/mnt/shared /mnt/shared-folder
+
+Optional stuff
+
+sudo snap install pycharm-community --classic
+Start up pycharm-community, choose Darcula, bash-support, markdown
+Add other plugins as needed: Makefile, Docker
+
+# Download some open source git packages
+git clone https://github.com/NSA/ghidra
+sudo apt install gnome-tweaks vagrant docker.io
+
+sudo visudo to give 'user' NOPASSWD: sudo capability
+Add following line to /etc/sudoers:
+user	ALL=(ALL:ALL)NOPASSWD: ALL
+
+Tweaks
+Add Home, Network Servers button.  Default 14 (from 13) size font, Top Bar Date on.
+

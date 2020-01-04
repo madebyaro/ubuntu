@@ -1,0 +1,68 @@
+
+
+Instructions to set up the python package mirror
+# in a virtual env, install the following:
+$ pip install wheel
+$ pip install python-pypi-mirror
+$ pip install json
+
+# Then run grab_pkgs.py in order to generate a list of packages :
+$ python grab_pkgs.py
+
+# Then download the top 1000 packages
+# plus any additional you need (such as imagemounter)
+
+$ for f in `head -1000 pkgnames.txt` ; do pypi-mirror download -d pypi-downloads $f ; done
+
+# Example of downloading the 'requests' package to the pypi-downloads directory:  
+$ pypi-mirror download -d pypi-downloads requests  
+
+# Now create the pypi mirror in the 'mirror' directory:
+$ pypi-mirror create -d pypi-packages -m mirror  
+
+# Quick and dirty python http server:  
+
+$ cd mirror ; python3 -m http.server  
+
+# It will start a HTTP server that will serve file from the current directory (which should contains the downloads directory and the simple directory). You can then install packages using your brand new mirror using the following command:  
+
+$ pip install -i http://127.0.0.1:8000 requests  
+
+
+
+
+sudo apt install pip
+  964  sudo apt install python-pip
+  965  python2 -m pip --version
+  966  python2 -m pip install ipykernel
+  967  python2 -m ipykernel install --user
+  968  cd ..
+  969  python2 -m venv venv-python2
+  970  pip install venv
+  971  pip install virtualenv
+  972  python2 -m venv venv-python2
+  973  virtualenv venv-python2
+  974  python -m virtualenv
+  975  python -m virtualenv venv-python2
+  976  python3 -m venv venv-python3
+  977  source venv-python2/bin/activate
+  978  jupyter-lab
+  979  pip install jupyter-lab
+  980  pip install jupyterlab
+  981  jupyter-lab
+  982  deactivate 
+  983  ls
+  984  sudo python2 -m pip install --upgrade ipykernel
+  985  sudo python2 -m ipykernel install
+  986  jupyter
+  987  source venv-python3/bin/activate
+  988  jupyter
+  989  jupyter-lab
+  990  find /usr -name jupyter-lab -print
+  991  pip install jupyterlab
+  992  pip install wheel
+  993  pip uninstall jupyterlab
+  994  pip install jupyterlab
+  995  jupyter-lab
+  996  bg
+  997  history
