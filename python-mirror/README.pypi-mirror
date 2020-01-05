@@ -18,7 +18,7 @@ $ for f in `head -1000 pkgnames.txt` ; do pypi-mirror download -d pypi-downloads
 $ pypi-mirror download -d pypi-downloads requests  
 
 # Now create the pypi mirror in the 'mirror' directory:
-$ pypi-mirror create -d pypi-packages -m mirror  
+$ pypi-mirror create -d pypi-downloads -m mirror  
 
 # Quick and dirty python http server:  
 
