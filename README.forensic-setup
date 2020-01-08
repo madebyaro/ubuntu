@@ -1,7 +1,9 @@
 Ubuntu 18.04.3
 
 $ sudo apt update && sudo apt upgrade -Y
-$ sudo apt install autopsy sleuthkit openssh-server net-tools build-essential git
+$ sudo apt install openssh-server net-tools build-essential git
+$ sudo apt install dddcfl autoconf automake libtool
+$ sudo apt install autopsy sleuthkit (or build sleuthkit 4.8 for xfs support)
 $ sudo apt install xmount ewf-tools afflib-tools
 $ sudo apt install ntfs-3g vmfs-tools squashfs-tools mtd-tools xmount
 $ sudo apt install xfsprogs xfsdump attr quota
@@ -11,6 +13,9 @@ $ sudo apt install cryptsetup mdadm squashfs-tools mtd-tools
 
 # python stuff
 $ sudo apt install python-setuptools python3-pip virtualenvwrapper virtualenv python3-venv
+
+# For mounting, add full qemu installation
+$ sudo apt install qemu-kvm ubuntu-vm-builder virt-manager libvirt-bin
 
 # Make a pypi mirror
 $ mkdir -p ~/src/pypi ; cd ~/src/pypi
@@ -54,6 +59,8 @@ sudo apt install gnome-tweaks vagrant docker.io
 sudo visudo to give 'user' NOPASSWD: sudo capability
 Add following line to /etc/sudoers:
 user	ALL=(ALL:ALL)NOPASSWD: ALL
+
+# Grab VMware Vsphere hypervisor (free version)
 
 Tweaks
 Add Home, Network Servers button.  Default 14 (from 13) size font, Top Bar Date on.
