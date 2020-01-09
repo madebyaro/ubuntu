@@ -2,20 +2,26 @@ Ubuntu 18.04.3
 
 $ sudo apt update && sudo apt upgrade -Y
 $ sudo apt install openssh-server net-tools build-essential git
-$ sudo apt install dddcfl autoconf automake libtool
-$ sudo apt install autopsy sleuthkit (or build sleuthkit 4.8 for xfs support)
+$ sudo apt install dcfldd autoconf automake libtool
+$ sudo apt install autopsy sleuthkit (also see sleuthkit w/xfs support)
 $ sudo apt install xmount ewf-tools afflib-tools
 $ sudo apt install ntfs-3g vmfs-tools squashfs-tools mtd-tools xmount
 $ sudo apt install xfsprogs xfsdump attr quota
 $ sudo apt install nfs-common nfs-kernel-server cifs-utils
-$ sudo apt install qemu-utils avfs disktype lvm2 libbde-utils libvshadow-utils
+$ sudo apt install avfs disktype lvm2 libbde-utils libvshadow-utils
 $ sudo apt install cryptsetup mdadm squashfs-tools mtd-tools 
 
 # python stuff
 $ sudo apt install python-setuptools python3-pip virtualenvwrapper virtualenv python3-venv
 
+# sleuthkit w/xfs support - Xfs support added in issue #1476, branch isciurus:xfs_support
+$ git clone https://github.com/sleuthkit/sleuthkit.git
+$ mkdir isc ; cd isc ; git clone https://github.com/isciurus/sleuthkit.git
+
 # For mounting, add full qemu installation
-$ sudo apt install qemu-kvm ubuntu-vm-builder virt-manager libvirt-bin
+$ sudo apt install qemu-kvm qemu-utils ubuntu-vm-builder virt-manager libvirt-bin
+
+# sudo apt install gnome-tweaks vagrant docker.io
 
 # Make a pypi mirror
 $ mkdir -p ~/src/pypi ; cd ~/src/pypi
@@ -54,13 +60,13 @@ Add other plugins as needed: Makefile, Docker
 
 # Download some open source git packages
 git clone https://github.com/NSA/ghidra
-sudo apt install gnome-tweaks vagrant docker.io
 
 sudo visudo to give 'user' NOPASSWD: sudo capability
 Add following line to /etc/sudoers:
 user	ALL=(ALL:ALL)NOPASSWD: ALL
 
 # Grab VMware Vsphere hypervisor (free version)
+# Also grab google-chromium-browser
 
 Tweaks
 Add Home, Network Servers button.  Default 14 (from 13) size font, Top Bar Date on.
