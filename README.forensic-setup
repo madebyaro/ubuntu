@@ -72,3 +72,4 @@ Tweaks
 Add Home, Network Servers button.  Default 14 (from 13) size font, Top Bar Date on.
 
 Building vmfs-tools
+sudo apt install uuid-dev libfuse-dev ascii-doc xsltproc docbook-xsl
