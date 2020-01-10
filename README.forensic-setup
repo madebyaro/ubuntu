@@ -1,6 +1,6 @@
 Ubuntu 18.04.3
 
-$ sudo apt update && sudo apt upgrade -Y
+$ sudo apt update && sudo apt upgrade -y
 $ sudo apt install openssh-server net-tools build-essential git
 $ sudo apt install dcfldd autoconf automake libtool
 $ sudo apt install autopsy sleuthkit (also see sleuthkit w/xfs support)
@@ -71,3 +71,4 @@ user	ALL=(ALL:ALL)NOPASSWD: ALL
 Tweaks
 Add Home, Network Servers button.  Default 14 (from 13) size font, Top Bar Date on.
 
+Building vmfs-tools
